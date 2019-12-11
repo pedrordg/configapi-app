@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
+import { environment } from '../../environments/environment';
 import { ConfigurationKey } from '../classes/configurationkey';
 import { ConfigurationKeyMocks } from '../mock/mock-configurationkey';
 
@@ -14,18 +14,19 @@ export class ConfigurationKeyService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-
+  apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getConfigurationKeys(): Observable<ConfigurationKey[]> {
-    return this.http.get<ConfigurationKey[]>(this.configurationKeyUrl, this.httpOptions)
+    const url = this.apiUrl + this.configurationKeyUrl;
+    return this.http.get<ConfigurationKey[]>(url, this.httpOptions)
     .pipe(
       catchError(this.handleError<ConfigurationKey[]>('getConfigurationKeys', []))
     );
   }
 
   getConfigurationKey(id: number): Observable<ConfigurationKey> {
-    const url = `${this.configurationKeyUrl}/${id}`;
+    const url = this.apiUrl + `${this.configurationKeyUrl}/${id}`;
     return this.http.get<ConfigurationKey>(url).pipe(
       catchError(this.handleError<ConfigurationKey>(`getConfigurationKey id=${id}`))
     );

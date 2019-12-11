@@ -10,6 +10,8 @@ import { ConfigurationKeyComponent } from '../app/components/configurationkey/co
 import { ConfigurationKeyDetailComponent } from '../app/components/configurationkey-detail/configurationkey-detail.component';
 import { DashboardComponent } from '../app/components/dashboard/dashboard.component';
 
+import { OAuthModule } from 'angular-oauth2-oidc';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../app/services/in-memory-data.service';
 
@@ -29,13 +31,11 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    //HttpClientInMemoryWebApiModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
+
+    OAuthModule.forRoot(),
 
     //material design
     MatTableModule,
