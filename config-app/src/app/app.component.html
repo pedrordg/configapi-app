@@ -1,6 +1,20 @@
-<h1>{{title}}</h1>
-<nav>
+<h1>{{ title }}</h1>
+<!-- <nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/configurationKeys">Configuration Keys</a>
+</nav> -->
+<!-- 
+<mat-tab-group>
+  <mat-tab routerLink="/dashboard" label="Dashboard">  Dashboard </mat-tab>
+  <mat-tab routerLink="/configurationKeys" label="ConfigurationKeys">  Configuration Keys </mat-tab>
+</mat-tab-group> -->
+
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+        *ngFor="let link of navLinks"
+        [routerLink]="link.link"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">{{link.label}}
+    </a>
 </nav>
 <router-outlet></router-outlet>

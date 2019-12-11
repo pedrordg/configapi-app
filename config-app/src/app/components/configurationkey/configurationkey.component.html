@@ -1,17 +1,21 @@
 <h2>Configuration Keys</h2>
-<div>
-    <label>Configuration Key name:
-      <input #configurationKeyName />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(configurationKeyName.value); configurationKeyName.value=''">
-      add
-    </button>
-  </div>
-<ul class="configurationKey">
+<!-- <ul class="configurationKey">
   <li *ngFor="let configurationKey of configurationKeys">
     <a routerLink="/detail/{{configurationKey.id}}">
       <span class="badge">{{configurationKey.id}}</span> {{configurationKey.name}}
     </a>
   </li>
-</ul>
+</ul> -->
+
+<table mat-table [dataSource]="configurationKeys" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+    <td mat-cell *matCellDef="let element" 
+    routerLink="/configurationKeysDetail/{{element.id}}">{{ element[column] }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"
+      class="example-element-row"
+  ></tr>
+</table>

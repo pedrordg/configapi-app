@@ -10,6 +10,7 @@ import { ConfigurationKeyService } from '../../services/configurationkey.service
 })
 
 export class ConfigurationKeyComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name' ];
   configurationKeys: ConfigurationKey[];
 
   constructor(private configurationKeyService: ConfigurationKeyService) { }

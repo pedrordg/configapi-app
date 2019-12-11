@@ -42,3 +42,11 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+  table {
+    width: 30%;
+  }
+
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: #777;
+  }

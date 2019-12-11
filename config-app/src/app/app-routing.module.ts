@@ -7,7 +7,7 @@ import { ConfigurationKeyDetailComponent } from '../app/components/configuration
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'configurationKeys', component: ConfigurationKeyComponent },
-  { path: 'detail/:id', component: ConfigurationKeyDetailComponent },
+  { path: 'configurationKeysDetail/:id', component: ConfigurationKeyDetailComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
