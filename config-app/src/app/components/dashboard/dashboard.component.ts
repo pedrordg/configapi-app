@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigurationKey } from '../classes/configurationkey';
-import { ConfigurationKeyService } from '../services/configurationkey.service';
+import { ConfigurationKey } from '../../classes/configurationkey';
+import { ConfigurationKeyService } from '../../services/configurationkey.service';
 
 @Component({
   selector: 'app-dashboard',

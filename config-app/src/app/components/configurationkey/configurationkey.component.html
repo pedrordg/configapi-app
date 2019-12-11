@@ -1,4 +1,13 @@
 <h2>Configuration Keys</h2>
+<div>
+    <label>Configuration Key name:
+      <input #configurationKeyName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(configurationKeyName.value); configurationKeyName.value=''">
+      add
+    </button>
+  </div>
 <ul class="configurationKey">
   <li *ngFor="let configurationKey of configurationKeys">
     <a routerLink="/detail/{{configurationKey.id}}">
