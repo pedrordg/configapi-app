@@ -31,9 +31,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // ),
+     HttpClientInMemoryWebApiModule.forRoot(
+       InMemoryDataService, { dataEncapsulation: false }
+     ),
 
     OAuthModule.forRoot(),
 

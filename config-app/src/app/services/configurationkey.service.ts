@@ -10,7 +10,7 @@ import { ConfigurationKeyMocks } from '../mock/mock-configurationkey';
   providedIn: 'root',
 })
 export class ConfigurationKeyService {
-  private configurationKeyUrl = 'api/configurationKeys';
+  private configurationKeyUrl = 'api/v1/table/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -18,7 +18,7 @@ export class ConfigurationKeyService {
   constructor(private http: HttpClient) { }
 
   getConfigurationKeys(): Observable<ConfigurationKey[]> {
-    const url = this.apiUrl + this.configurationKeyUrl;
+    const url = this.apiUrl + this.configurationKeyUrl  + 'configurationkey';
     return this.http.get<ConfigurationKey[]>(url, this.httpOptions)
     .pipe(
       catchError(this.handleError<ConfigurationKey[]>('getConfigurationKeys', []))

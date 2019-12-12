@@ -1,14 +1,36 @@
 import { ConfigurationKey } from '../classes/configurationkey';
 
 export const ConfigurationKeyMocks: ConfigurationKey[] = [
-    { id: 11, name: 'Dr Nice' },
-    { id: 12, name: 'Narco' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
+     { 
+       id: '11', 
+       name: 'Dr Nice', 
+       Description: '', 
+       DataTypeId: '0', 
+       IsDynamic: false, 
+       LevelKeyGroupId: 0, 
+       DefaultIntValue: 0,
+       DefaultDecimalValue: 0,
+       DefaultDateValue: new Date(),
+      DefaultTimeValue: new Date(),
+      DefaultStringValu: 'string',
+      DefaultGUIDValue: 'string',
+      CreatedBy: 'felizmina',
+      CreatedDate: new Date(),
+      },
+      { 
+        id: '12', 
+        name: 'Dr Nice', 
+        Description: '', 
+       DataTypeId: '0', 
+       IsDynamic: false, 
+       LevelKeyGroupId: 0, 
+       DefaultIntValue: 0,
+       DefaultDecimalValue: 0,
+       DefaultDateValue: new Date(),
+      DefaultTimeValue: new Date(),
+      DefaultStringValu: 'string',
+      DefaultGUIDValue: 'string',
+      CreatedBy: 'felizberta',
+      CreatedDate: new Date(),
+      }
   ];
