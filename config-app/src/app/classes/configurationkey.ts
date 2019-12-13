@@ -1,5 +1,5 @@
 export class ConfigurationKey {
-  id: string;
+  configurationKeyId: number;
   name: string;
   Description: string;
   DataTypeId: string;

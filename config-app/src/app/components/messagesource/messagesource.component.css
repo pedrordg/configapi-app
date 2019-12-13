@@ -1,11 +1,8 @@
-  table {
+table {
     width: 100%;
   }
-
+  
   tr.example-element-row:not(.example-expanded-row):hover {
     background: #777;
   }
-
-  .mat-column-description{
-    width: 26%;
-  }
+  

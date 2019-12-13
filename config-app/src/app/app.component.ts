@@ -15,13 +15,25 @@ export class AppComponent implements OnInit {
   activeLinkIndex = -1;
   navLinks = [
     {
-        label: 'Dashboard',
-        link: './dashboard',
-        index: 0
+      label: 'Dashboard',
+      link: './dashboard',
+      index: 0
     }, {
-        label: 'ConfigurationKeys',
-        link: './configurationKeys',
-        index: 1
+      label: 'Configuration Keys',
+      link: './configurationKeys',
+      index: 1
+    }, {
+      label: 'Predefined Values',
+      link: './predefinedValue',
+      index: 2
+    }, {
+      label: 'Message Types',
+      link: './messageTypes',
+      index: 3
+    }, {
+      label: 'Message Sources',
+      link: './messageSources',
+      index: 4
     }
   ];
 

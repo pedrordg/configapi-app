@@ -10,7 +10,7 @@ import { ConfigurationKeyService } from '../../services/configurationkey.service
 })
 
 export class ConfigurationKeyComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'description', 'dataTypeId', 'isDynamic', 'levelKeyGroupId', 'defaultIntValue', 'defaultDecimalValue', 'defaultDateValue', 'defaultTimeValue', 'defaultStringValue', 'defaultGUIDValue', 'CreatedBy', 'CreatedDate' ];
+  displayedColumns: string[] = ['configurationKeyId', 'name', 'description', 'dataTypeId', 'isDynamic', 'levelKeyGroupId', 'defaultIntValue', 'defaultDecimalValue', 'defaultDateValue', 'defaultTimeValue', 'defaultStringValue', 'defaultGUIDValue' ];
   configurationKeys: ConfigurationKey[];
 
   constructor(private configurationKeyService: ConfigurationKeyService) { }

@@ -3,31 +3,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { ConfigurationKey } from '../classes/configurationkey';
+import { PredefinedValue } from '../classes/PredefinedValue';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ConfigurationKeyService {
-  private configurationKeyUrl = 'api/v1/table/';
+export class PredefinedValueService {
+  private PredefinedValueUrl = 'api/v1/table/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
-  getConfigurationKeys(): Observable<ConfigurationKey[]> {
-    const url = this.apiUrl + this.configurationKeyUrl  + 'configurationkey';
-    return this.http.get<ConfigurationKey[]>(url, this.httpOptions)
+  getPredefinedValues(): Observable<PredefinedValue[]> {
+    const url = this.apiUrl + this.PredefinedValueUrl  + 'predefinedvalue';
+    return this.http.get<PredefinedValue[]>(url, this.httpOptions)
     .pipe(
-      catchError(this.handleError<ConfigurationKey[]>('getConfigurationKeys', []))
-    );
-  }
-
-  getConfigurationKey(id: number): Observable<ConfigurationKey> {
-    const url = this.apiUrl + `${this.configurationKeyUrl}/${id}`;
-    return this.http.get<ConfigurationKey>(url).pipe(
-      catchError(this.handleError<ConfigurationKey>(`getConfigurationKey id=${id}`))
+      catchError(this.handleError<PredefinedValue[]>('getPredefinedValues', []))
     );
   }
 

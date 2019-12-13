@@ -9,12 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfigurationKeyComponent } from '../app/components/configurationkey/configurationkey.component';
 import { ConfigurationKeyDetailComponent } from '../app/components/configurationkey-detail/configurationkey-detail.component';
 import { DashboardComponent } from '../app/components/dashboard/dashboard.component';
+import { PredefinedvalueComponent } from '../app/components/predefinedvalue/predefinedvalue.component';
+import { MessagetypeComponent } from '../app/components/messagetype/messagetype.component';
+import { MessagesourceComponent } from '../app/components/messagesource/messagesource.component';
 
 import { OAuthModule } from 'angular-oauth2-oidc';
-
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../app/services/in-memory-data.service';
-
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 
@@ -23,7 +22,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppComponent,
     DashboardComponent,
     ConfigurationKeyComponent,
-    ConfigurationKeyDetailComponent
+    ConfigurationKeyDetailComponent,
+    PredefinedvalueComponent,
+    MessagetypeComponent,
+    MessagesourceComponent
   ],
   imports: [
     BrowserModule,
@@ -31,13 +33,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-     HttpClientInMemoryWebApiModule.forRoot(
-       InMemoryDataService, { dataEncapsulation: false }
-     ),
 
     OAuthModule.forRoot(),
 
-    //material design
     MatTableModule,
     MatTabsModule
   ],

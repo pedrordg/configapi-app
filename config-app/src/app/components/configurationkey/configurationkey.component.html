@@ -1,12 +1,3 @@
-<h2>Configuration Keys</h2>
-<!-- <ul class="configurationKey">
-  <li *ngFor="let configurationKey of configurationKeys">
-    <a routerLink="/detail/{{configurationKey.id}}">
-      <span class="badge">{{configurationKey.id}}</span> {{configurationKey.name}}
-    </a>
-  </li>
-</ul> -->
-
 <table mat-table [dataSource]="configurationKeys" class="mat-elevation-z8">
   <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
     <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
