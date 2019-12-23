@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { MessageType } from '../classes/messagetype';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,12 @@ export class MessageTypeService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   apiUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getMessageTypes(): Observable<MessageType[]> {
+    const token = 'Bearer ' + this.authService.getToken();
+    this.httpOptions.headers.append('Authorization', token);
+
     const url = this.apiUrl + this.baseUrl  + 'messagetype';
     return this.http.get<MessageType[]>(url, this.httpOptions)
     .pipe(
