@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ConfigurationKey } from '../classes/configurationkey';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,14 @@ import { ConfigurationKey } from '../classes/configurationkey';
 export class ConfigurationKeyService {
   private configurationKeyUrl = 'api/v1/table/';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders(
+      {
+         'Content-Type': 'application/json',
+         Authorization:  'Bearer ' + this.oauthService.getAccessToken()
+      })
   };
   apiUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oauthService: OAuthService) { }
 
   getConfigurationKeys(): Observable<ConfigurationKey[]> {
     const url = this.apiUrl + this.configurationKeyUrl  + 'configurationkey';

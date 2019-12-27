@@ -10,7 +10,9 @@ export class AuthService {
 
   getToken(): string {
     const token = this.oauthService.getAccessToken();
-    localStorage.setItem('access_token', token);
+    if (token) {
+      localStorage.setItem('access_token', token);
+    }
     return token;
   }
 

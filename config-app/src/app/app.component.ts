@@ -1,63 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OAuthService } from 'angular-oauth2-oidc';
-import { JwksValidationHandler } from 'angular-oauth2-oidc';
-import { authConfig } from '../app/auth/authConfig';
-import { AuthService } from '../app/services/auth.service';
+// import { OAuthService } from 'angular-oauth2-oidc';
+// import { JwksValidationHandler } from 'angular-oauth2-oidc';
+// import { AuthService } from '../app/services/auth.service';
+// import { authConfig } from '../app/auth/authConfig';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'Matrix Payment Gateway - Configuration API portal';
-
-  activeLinkIndex = -1;
-  navLinks = [
-    {
-      label: 'Dashboard',
-      link: './dashboard',
-      index: 0
-    },
-    {
-      label: 'Configuration Keys',
-      link: './configurationKeys',
-      index: 1
-    },
-    {
-      label: 'Predefined Values',
-      link: './predefinedValue',
-      index: 2
-    },
-    {
-      label: 'Message Types',
-      link: './messageTypes',
-      index: 3
-    },
-    {
-      label: 'Message Sources',
-      link: './messageSources',
-      index: 4
-    }
-  ];
-
-  constructor(private router: Router, private oauthService: OAuthService, private authService: AuthService) {
+export class AppComponent {
+  constructor( private router: Router
+    //private oauthService: OAuthService, private authService: AuthService, private router: Router
+    ) {
     this.configure();
   }
 
-  ngOnInit() {
-    this.router.events.subscribe(res => {
-      this.activeLinkIndex = this.navLinks.indexOf(
-        this.navLinks.find(tab => tab.link === "." + this.router.url)
-      );
-    });
+  public login() {
+      //this.oauthService.initLoginFlow();
+      this.router.navigateByUrl('/dashboard');
   }
 
   private configure() {
-    this.oauthService.configure(authConfig);
-    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
-    this.oauthService.loadDiscoveryDocumentAndTryLogin();
-    this.authService.getToken();
+    // this.oauthService.configure(authConfig);
+    // this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    // this.oauthService.loadDiscoveryDocumentAndTryLogin({
+    //   onLoginError: errorCtx => {
+    //     window.alert(errorCtx);
+    //   },
+    //   onTokenReceived: context => {
+    //     localStorage.removeItem('access_token');
+    //     localStorage.setItem('access_token', context.accessToken);
+    //   }
+    // });
   }
 }
