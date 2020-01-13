@@ -14,7 +14,6 @@ import { PredefinedvalueComponent } from '../app/components/predefinedvalue/pred
 import { MessagetypeComponent } from '../app/components/messagetype/messagetype.component';
 import { MessagesourceComponent } from '../app/components/messagesource/messagesource.component';
 import { HomeComponent } from './components/home/home.component';
-import { AuthService } from '../app/services/auth.service';
 import { AuthGuard } from '../app/auth.guard';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,11 +38,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-  //   OAuthModule.forRoot({
-  //     resourceServer: {
-  //       sendAccessToken: true
-  //     }
-  // }),
+     OAuthModule.forRoot({
+       resourceServer: {
+         sendAccessToken: true
+       }
+   }),
     MatTableModule,
     MatTabsModule,
     MatDialogModule,
@@ -55,12 +54,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     // })
   ],
   providers: [
-    AuthService,
     AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-// export function tokenGetter() {
-//   return localStorage.getItem('access_token');
-// }
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
