@@ -45,13 +45,7 @@ import { MatDialogModule } from '@angular/material/dialog';
    }),
     MatTableModule,
     MatTabsModule,
-    MatDialogModule,
-    // JwtModule.forRoot({
-    //   config: {
-    //     tokenGetter: tokenGetter,
-    //     whitelistedDomains: ['localhost:4200']
-    //   }
-    // })
+    MatDialogModule
   ],
   providers: [
     AuthGuard],
