@@ -14,6 +14,7 @@ export class PredefinedValueService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   apiUrl = environment.apiUrl;
+
   constructor(private http: HttpClient) { }
 
   getPredefinedValues(): Observable<PredefinedValue[]> {

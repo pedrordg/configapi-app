@@ -14,6 +14,7 @@ export class MessageTypeService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   apiUrl = environment.apiUrl;
+
   constructor(private http: HttpClient) { }
 
   getMessageTypes(): Observable<MessageType[]> {

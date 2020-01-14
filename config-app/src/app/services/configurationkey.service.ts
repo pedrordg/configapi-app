@@ -15,6 +15,7 @@ export class ConfigurationKeyService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   apiUrl = environment.apiUrl;
+
   constructor(private http: HttpClient, private oauthService: OAuthService) { }
 
   getConfigurationKeys(): Observable<ConfigurationKey[]> {

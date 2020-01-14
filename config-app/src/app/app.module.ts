@@ -52,7 +52,3 @@ import { MatDialogModule } from '@angular/material/dialog';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-export function tokenGetter() {
-  return localStorage.getItem('access_token');
-}
