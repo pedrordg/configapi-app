@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Update Message Source</h1>
+<div mat-dialog-content>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Name" [(ngModel)]="messageSource.name">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Description" [(ngModel)]="messageSource.description">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="button-row">
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="primary" (click)="ok(messageSource)" cdkFocusInitial>Ok</button>
+</div>

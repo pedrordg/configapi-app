@@ -1,9 +1,8 @@
 <table mat-table [dataSource]="messageSources" class="mat-elevation-z8">
   <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
     <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-    <td
-      mat-cell
-      *matCellDef="let element">
+    <td mat-cell *matCellDef="let element"
+    mat-raised-button (click)="openDialog(element)">
       {{ element[column] }}
     </td>
   </ng-container>

@@ -13,7 +13,7 @@ import { PredefinedvalueComponent } from '../app/components/predefinedvalue/pred
 import { MessagetypeComponent } from '../app/components/messagetype/messagetype.component';
 import { MessagesourceComponent } from '../app/components/messagesource/messagesource.component';
 import { HomeComponent } from './components/home/home.component';
-import { UpdatePopupComponent } from '../app/components/update-popup/update-popup.component';
+import { MessagesourcePopupComponent } from '../app/components/messagesource/messagesource-popup.component';
 import { AuthGuard } from '../app/auth.guard';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,13 +21,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatButtonModule } from '@angular/material/button';
 
 const modules = [
   MatTableModule,
   MatTabsModule,
   MatDialogModule,
-  MatInputModule
+  MatInputModule,
+  MatButtonModule
 ];
 
 @NgModule({
@@ -40,7 +41,7 @@ const modules = [
     PredefinedvalueComponent,
     MessagetypeComponent,
     MessagesourceComponent,
-    UpdatePopupComponent
+    MessagesourcePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,7 @@ const modules = [
     modules
   ],
   entryComponents: [
-    UpdatePopupComponent
+    MessagesourcePopupComponent
   ],
   providers: [
     AuthGuard],
