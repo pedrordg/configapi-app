@@ -1,13 +1,29 @@
-<h1><p>{{ title }}</p></h1>
-<nav mat-tab-nav-bar>
-  <a
-    mat-tab-link
-    *ngFor="let link of navLinks"
-    [routerLink]="link.link"
-    routerLinkActive
-    #rla="routerLinkActive"
-    [active]="rla.isActive"
-    >{{ link.label }}
-  </a>
-</nav>
-<router-outlet></router-outlet>
+<div class="width-complete">
+  <div class="align-left main-margin">
+    <h1><p>{{ 'common:title' | i18next }}</p></h1>
+  </div>
+  <div class="align-right language-border">
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>
+      <mat-select [(ngModel)]="selectedLanguage" name="language">
+        <mat-option value="en" (click)="switchLanguage()">English</mat-option>
+        <mat-option value="pt" (click)="switchLanguage()">Português</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="main-margin">
+  <nav mat-tab-nav-bar>
+    <a
+      mat-tab-link
+      *ngFor="let link of navLinks"
+      [routerLink]="link.link"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [active]="rla.isActive"
+      >{{ link.label }}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

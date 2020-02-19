@@ -25,3 +25,19 @@ h1 {
   nav a.active {
     color: #039be5;
   }
+  .width-complete {
+    width: 100%; overflow: hidden;
+  }
+  .width-complete .align-left {
+    float: left;
+  }
+  .width-complete .align-right {
+    float: right;
+  }
+  .language-border {
+    padding-top: 20px; padding-right: 20px;
+  }
+  .main-margin {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
