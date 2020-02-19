@@ -10,7 +10,7 @@ export function appInit(i18next: ITranslationService) {
     .init({
         whitelist: ['en', 'pt'],
         fallbackLng: 'en',
-        debug: true,
+        debug: false,
         returnEmptyString: false,
         ns: [
           'common',
@@ -18,10 +18,8 @@ export function appInit(i18next: ITranslationService) {
         ],
         backend: {
             projectId: 'ccd37eb6-9ff1-4951-9589-476bffd4b7af',
-            apiKey: '2dfedefe-7202-48f3-9f5f-d1e33cebe15c',
             version: 'v1',
-            private: false,
-            allowedAddOrUpdateHosts: ['localhost'],
+            private: false
         },
         detection: {
             order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],

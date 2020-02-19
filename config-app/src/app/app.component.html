@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">{{ 'common:title' | i18next }}</h1>
     <mat-form-field appearance="fill">
-      <mat-label>Select</mat-label>
+      <mat-label></mat-label>
       <mat-select [(ngModel)]="selectedLanguage" name="language">
         <mat-option value="en" (click)="switchLanguage()">English</mat-option>
         <mat-option value="pt" (click)="switchLanguage()">Português</mat-option>
