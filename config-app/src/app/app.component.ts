@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from '../app/auth/authConfig';
 import i18next from 'i18next';
 import { ITranslationService, I18NEXT_SERVICE } from 'angular-i18next';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ITranslationService, I18NEXT_SERVICE } from 'angular-i18next';
 })
 
 export class AppComponent implements OnInit {
+  @ViewChild('snav', {static: false}) sidenav: MatSidenav;
   selectedLanguage: string;
   previousLanguage: string;
   navLinks = [
@@ -65,5 +67,9 @@ export class AppComponent implements OnInit {
 
   public switchLanguage() {
     i18next.changeLanguage(this.selectedLanguage);
+  }
+
+  close() {
+    this.sidenav.close();
   }
 }
