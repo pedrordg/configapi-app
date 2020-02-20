@@ -1,18 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import {MatSidenav} from '@angular/material/sidenav';
+import { Component, OnInit, Inject } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from '../app/auth/authConfig';
 import i18next from 'i18next';
+import { ITranslationService, I18NEXT_SERVICE } from 'angular-i18next';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   selectedLanguage: string;
+  previousLanguage: string;
   navLinks = [
     {
       label: i18next.t('menu:home'),
@@ -41,13 +42,19 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  constructor(private oauthService: OAuthService,
-              private router: Router) {
+  constructor(private oauthService: OAuthService, @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService) {
     this.configure();
-    this.selectedLanguage = i18next.language;
+    this.selectedLanguage = this.previousLanguage = i18next.language;
   }
 
   ngOnInit() {
+    this.i18NextService.events.languageChanged.subscribe(lang => {
+      if (lang !== this.previousLanguage) {
+        window.location.reload();
+      } else {
+        this.previousLanguage = lang;
+      }
+    });
   }
 
   private configure() {
@@ -57,9 +64,6 @@ export class AppComponent implements OnInit {
   }
 
   public switchLanguage() {
-    i18next.changeLanguage(this.selectedLanguage).then((t) => {
-      window.location.reload();
-      }
-    );
+    i18next.changeLanguage(this.selectedLanguage);
   }
 }
