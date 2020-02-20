@@ -29,6 +29,7 @@
     "i18next": "^19.1.0",
     "i18next-browser-languagedetector": "^4.0.1",
     "i18next-locize-backend": "^3.0.1",
+    "i18next-xhr-backend": "^3.2.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
