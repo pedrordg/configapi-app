@@ -25,19 +25,29 @@ h1 {
   nav a.active {
     color: #039be5;
   }
-  .width-complete {
-    width: 100%; overflow: hidden;
-  }
-  .width-complete .align-left {
-    float: left;
-  }
-  .width-complete .align-right {
-    float: right;
-  }
-  .language-border {
-    padding-top: 20px; padding-right: 20px;
-  }
   .main-margin {
+    margin-top: 10px;
     margin-right: 20px;
     margin-left: 20px;
+  }
+
+
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  h1.example-app-name {
+    margin-left: 8px;
+  }
+  
+  .example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
   }

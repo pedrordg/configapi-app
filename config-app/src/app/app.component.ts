@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatSidenav} from '@angular/material/sidenav';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from '../app/auth/authConfig';
@@ -12,8 +13,6 @@ import i18next from 'i18next';
 })
 export class AppComponent implements OnInit {
   selectedLanguage: string;
-  languages: string[];
-  activeLinkIndex = -1;
   navLinks = [
     {
       label: i18next.t('menu:home'),
@@ -49,12 +48,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events
-    .subscribe(res => {
-      this.activeLinkIndex = this.navLinks.indexOf(
-        this.navLinks.find(tab => tab.link === '.' + this.router.url)
-      );
-    });
   }
 
   private configure() {
