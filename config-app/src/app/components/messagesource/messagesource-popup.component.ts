@@ -9,18 +9,22 @@ import { MessageSourceService } from '../../services/message-source.service';
   styleUrls: ['./messagesource-popup.component.css']
 })
 export class MessagesourcePopupComponent {
+  private currentModel: MessageSource;
 
   constructor(
     public dialogRef: MatDialogRef<MessagesourcePopupComponent>,
     @Inject(MAT_DIALOG_DATA) public messageSource: MessageSource,
-    private messageSourceService: MessageSourceService) {}
+    private messageSourceService: MessageSourceService) {
+      this.currentModel = JSON.parse(JSON.stringify(this.messageSource));
+    }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  openDialog(data: MessageSource): void {
-    //this.messageSourceService.
+  save(): void {
+    this.messageSource.name = this.currentModel.name;
+    this.messageSource.Description = this.currentModel.Description;
     this.dialogRef.close();
   }
 }
