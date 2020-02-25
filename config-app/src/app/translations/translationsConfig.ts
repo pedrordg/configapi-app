@@ -1,14 +1,14 @@
 import { APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { ITranslationService, I18NEXT_SERVICE } from 'angular-i18next';
-import Locize from 'i18next-locize-backend';
+import XHR from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { environment } from '../../environments/environment';
 
 export function appInit(i18next: ITranslationService) {
     return () => i18next
-    .use(Locize)
+    .use(XHR)
     .use(LanguageDetector)
     .init({
-        whitelist: ['en', 'pt'],
         fallbackLng: 'en',
         debug: false,
         returnEmptyString: false,
@@ -17,10 +17,11 @@ export function appInit(i18next: ITranslationService) {
           'menu'
         ],
         backend: {
-            projectId: 'ccd37eb6-9ff1-4951-9589-476bffd4b7af',
-            version: 'v1',
-            private: false
+            loadPath: environment.localizationApiUrl + '/api/resources/' + environment.localizationProjectId + ' /{{lng}}/{{ns}}',
+            allowMultiLoading: false
         },
+        parse: function(data) { return data.replace(/a/g, ''); },
+        crossDomain: true,
         detection: {
             order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
             lookupQuerystring: 'lng',

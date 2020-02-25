@@ -4,6 +4,8 @@
 
 export const environment = {
   apiUrl: 'https://localhost:44321/',
+  localizationApiUrl: 'https://localhost:44326',
+  localizationProjectId: '7dc12220-2abe-48e2-9e3a-ef4663cae9a6',
   production: false
 };
 
