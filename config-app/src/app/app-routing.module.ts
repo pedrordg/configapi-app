@@ -7,6 +7,7 @@ import { ConfigurationKeyDetailComponent } from '../app/components/configuration
 import { PredefinedvalueComponent } from '../app/components/predefinedvalue/predefinedvalue.component';
 import { MessagetypeComponent } from '../app/components/messagetype/messagetype.component';
 import { MessagesourceComponent } from '../app/components/messagesource/messagesource.component';
+import { AboutComponent } from '../app/components/about/about.component';
 import { AuthGuard } from '../app/auth.guard';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'predefinedValue', component: PredefinedvalueComponent, canActivate: [AuthGuard] },
   { path: 'messageTypes', component: MessagetypeComponent, canActivate: [AuthGuard] },
   { path: 'messageSources', component: MessagesourceComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
