@@ -17,7 +17,7 @@ export function appInit(i18next: ITranslationService) {
           'menu'
         ],
         backend: {
-            loadPath: environment.localizationApiUrl + '/api/resources/' + environment.localizationProjectId + ' /{{lng}}/{{ns}}',
+            loadPath: environment.localizationApiUrl + '/api/resources/' + environment.localizationProjectId + '/{{lng}}/{{ns}}',
             allowMultiLoading: false
         },
         parse: function(data) { return data.replace(/a/g, ''); },

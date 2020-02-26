@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://localhost:44321/',
-  localizationApiUrl: 'https://localhost:44326',
-  localizationProjectId: '7dc12220-2abe-48e2-9e3a-ef4663cae9a6',
+  apiUrl: 'https://localhost:44321',
+  localizationApiUrl: 'https://localizationapi.azurewebsites.net',
+  localizationProjectId: '43aa3ed2-bcd7-4c75-94da-2961ed544dd6',
   production: false
 };
 

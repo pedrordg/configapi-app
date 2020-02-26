@@ -14,5 +14,5 @@ export const authConfig: AuthConfig = {
    // The first three are defined by OIDC. The 4th is a usecase-specific one
    scope: 'ConfigurationAPI configurationapi:monitor:read',
 
-   oidc: true,
+   oidc: false,
 };
