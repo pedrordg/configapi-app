@@ -9,7 +9,7 @@ import { MessageSourceService } from '../../services/message-source.service';
   styleUrls: ['./messagesource-popup.component.css']
 })
 export class MessagesourcePopupComponent {
-  private currentModel: MessageSource;
+  public currentModel: MessageSource;
 
   constructor(
     public dialogRef: MatDialogRef<MessagesourcePopupComponent>,
@@ -24,7 +24,7 @@ export class MessagesourcePopupComponent {
 
   save(): void {
     this.messageSource.name = this.currentModel.name;
-    this.messageSource.Description = this.currentModel.Description;
+    this.messageSource.description = this.currentModel.description;
     this.dialogRef.close();
   }
 }
